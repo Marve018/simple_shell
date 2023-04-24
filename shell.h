@@ -25,4 +25,15 @@ char *_strdup(char *str);
 void _puts(char *str);
 void *_realloc(void *ptr, unsigned int o_size, unsigned int n_size);
 
+/*tokenize*/
+char **tokenize(char *str, char *delim, int len);
+
+/*exec*/
+int exec(char *cmd, char **copts);
+
+/*read_newline*/
+char *remove_newline(char *str);
+
+/* main */
+int count_input(char *str);
 #endif
