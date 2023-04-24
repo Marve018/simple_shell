@@ -18,11 +18,7 @@ int exec(char *cmd, char **copts)
 			perror("failed fork");
 			return (-1);
 		case 0:
-			if (execve(cmd, copts, NULL) == -1)
-			{
-				/* perror("failed execve");*/
-				exit(EXIT_FAILURE);
-			}
+			execve(cmd, copts, environ);
 			break;
 		default:
 			while (1)
