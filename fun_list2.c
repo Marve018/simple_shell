@@ -124,3 +124,4 @@ void *_realloc(void *ptr, unsigned int o_size, unsigned int n_size)
 
 	free(ptr);
 	return (nptr);
+}
