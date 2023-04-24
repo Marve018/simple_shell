@@ -12,6 +12,8 @@
 #include <fcntl.h>
 #include <errno.h>
 
+extern char **environ;
+
 /* fun_list */
 int _putchar(char c);
 int _atoi(char *s);
