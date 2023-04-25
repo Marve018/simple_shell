@@ -14,6 +14,9 @@
 
 extern char **environ;
 
+/* path */
+char *concat_path(char *pathname, char *prgname);
+
 /* fun_list */
 int _putchar(char c);
 int _atoi(char *s);
@@ -32,6 +35,7 @@ char **tokenize(char *str, char *delim, int len);
 
 /*exec*/
 int exec(char *cmd, char **copts);
+int count_delims(char *str, char *delim);
 
 /*read_newline*/
 char *remove_newline(char *str);
