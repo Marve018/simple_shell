@@ -14,6 +14,10 @@
 
 extern char **environ;
 
+/* environ */
+char *_getenv(const char *name);
+void _print_env(void);
+
 /* path */
 char *concat_path(char *pathname, char *prgname);
 
