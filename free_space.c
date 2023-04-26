@@ -6,7 +6,7 @@
  */
 void free_env_var(char *env_var)
 {
-    free(env_var);
+	free(env_var);
 }
 
 
@@ -21,7 +21,7 @@ void free_tokens(char **tokens)
 	if (tokens == NULL)
 		return;
 
-	for (i=0; tokens[i] != NULL; i++)
+	for (i = 0; tokens[i] != NULL; i++)
 	{
 		free(tokens[i]);
 		tokens[i] = NULL;
