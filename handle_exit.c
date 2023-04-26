@@ -11,7 +11,7 @@ void _handle_exit(char **u_tokns, char *line)
 {
 	int status;
 
-	if (u_tokns[1] == NULL || (!_strcmp(u_tokns[1], "0"))) /* No argument provided */
+	if (u_tokns[1] == NULL || (!_strcmp(u_tokns[1], "0"))) 
 	{
 		free_tokens(u_tokns);
 		free(line);
