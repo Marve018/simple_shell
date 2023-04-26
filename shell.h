@@ -50,4 +50,10 @@ int count_input(char *str);
 /* Free space */
 void free_tokens(char **tokns);
 void free_env_var(char *env_var);
+
+/* Handle_exit */
+void _handle_exit(char **u_tokns, char *line);
+
+/* openHelp */
+void openHelp(void);
 #endif

@@ -13,7 +13,7 @@ void _handle_exit(char **u_tokns, char *line)
 
 	if (u_tokns[1] == NULL) /* No argument provided */
 	{
-		frees_tokens(u_tokns);
+		free_tokens(u_tokns);
 		free(line);
 		exit(EXIT_SUCCESS);
 	}
@@ -28,7 +28,7 @@ void _handle_exit(char **u_tokns, char *line)
 		exit(EXIT_FAILURE);
 	}
 
-	frees_tokens(u_tokns);
+	free_tokens(u_tokns);
 	free(line);
 	exit(status); /* Exit with provided status */
 }
