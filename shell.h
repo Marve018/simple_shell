@@ -60,4 +60,7 @@ void _handle_exit(char **u_tokns, char *line);
 
 /* openHelp */
 void openHelp(void);
+
+/* Handles Signals */
+void signal_handler(int sig_id);
 #endif
