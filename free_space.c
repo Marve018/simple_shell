@@ -20,20 +20,18 @@ void free_env_var(char *env_var)
 /**
  * free_tokens - Frees an array of tokens.
  * @tokens: The array of tokens to free.
+ * Return: Nothing to return.
  */
-void free_tokens(char **tokens)
+
+void freestokens(char **tokns)
 {
-	int i = 0;
+	char **temp = tokns;
 
-	if (tokens == NULL)
-		return;
-
-	for (i = 0; tokens[i] != NULL; i++)
+	if (tokns)
 	{
-		free(tokens[i]);
-		tokens[i] = NULL;
-	}
+		while (*tokns)
+			free(*tokns++);
 
-	free(tokens);
-	tokens = NULL;
+		free(temp);
+	}
 }
