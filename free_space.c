@@ -23,7 +23,7 @@ void free_env_var(char *env_var)
  * Return: Nothing to return.
  */
 
-void freestokens(char **tokns)
+void free_tokens(char **tokns)
 {
 	char **temp = tokns;
 
