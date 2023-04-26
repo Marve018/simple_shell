@@ -30,7 +30,45 @@ char *concat_path(char *pathname, char *prgname)
   *
   * Return: The path name of the command found or NULL if failed
   */
-char *find_path(char *cmd)
+
+char *find(char *cmd)
 {
-	
+	char *env_path = NULL, **p_tokns = NULL;
+	int i = 0, num_del = 0;
+	struct stat sb;
+
+	if (cmd)
+	{
+		if (stat(cmd, &sb) != 0 && cmd[0] != '/')
+		{
+			env_path = _getenv("PATH");
+			num_del = count_delims(env_path, ":") + 1;
+			p_tokns = tokenize(env_path, ":", num_del);
+
+			while (p_tokns[i])
+			{
+				p_tokns[i] = concat_path(p_tokns[i], cmd);
+
+				if (stat(p_tokns[i], &sb) == 0)
+				{
+					free(cmd);
+					cname = _strdup(p_tokns[i]);
+					frees_get_env(env_path);
+					frees_tokens(p_tokns);
+					return (cmd);
+				}
+
+				i++;
+			}
+
+			free_env_var(env_path);
+			free_tokens(p_tokns);
+		}
+
+		if (stat(cname, &sb) == 0)
+			return (cmd);
+	}
+
+	free(cmd);
+	return (NULL);
 }
