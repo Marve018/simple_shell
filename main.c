@@ -39,7 +39,7 @@ int main(int ac, char **av)
 	char *input = NULL, **u_toks = NULL;
 	ssize_t input_len = 0;
 	size_t input_size;
-	int wrd_len;
+	int wrd_len, execflag = 0;
 
 	(void) ac;
 	(void) av;
@@ -60,8 +60,16 @@ int main(int ac, char **av)
 		if (wrd_len > 0 && input[0] != '\n')
 		{
 			u_toks = tokenize(input, " \t", wrd_len);
-			if(exec(input, u_toks) == -1)
-				perror("./hsh");
+			execflag = execBuiltInCommands(u_toks, input);
+			if (!execflag)
+			{
+				u_toks[0] = find(u_toks[0]);
+				if (u_toks[0] && access(u_toks[0], X_OK) == 0)
+					exec(u_toks[0], u_toks);
+				else
+					perror("./hsh");
+			}
+			free_tokens(u_toks);
 		}
 	}
 	free(input);

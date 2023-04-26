@@ -14,12 +14,16 @@
 
 extern char **environ;
 
+/* builtin */
+int execBuiltInCommands(char **u_tokns, char *line);
+
 /* environ */
 char *_getenv(const char *name);
 void _print_env(void);
 
 /* path */
 char *concat_path(char *pathname, char *prgname);
+char *find(char *cmd);
 
 /* fun_list */
 int _putchar(char c);

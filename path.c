@@ -25,7 +25,7 @@ char *concat_path(char *pathname, char *prgname)
 }
 
 /**
-  * find_path - Verify if a command is found in the system
+  * find - Verify if a command is found in the system
   * @cmd: The command name to find in the system
   *
   * Return: The path name of the command found or NULL if failed
