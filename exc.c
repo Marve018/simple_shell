@@ -10,7 +10,7 @@
 int exec(char *cmd, char **copts)
 {
 	int check;
-	pid_t pid, w;
+	pid_t pid;
 
 	switch (pid = fork())
 	{
@@ -21,15 +21,10 @@ int exec(char *cmd, char **copts)
 			execve(cmd, copts, environ);
 			break;
 		default:
-			while (1)
-			{
-				w = waitpid(pid, &check, WUNTRACED);
-				if (w == -1)
-					return (-1);
-				else if (WIFEXITED(check) || WIFSIGNALED(check))
-					break;
-			}
-			break;
+			do {
+				 waitpid(pid, &check, WUNTRACED);
+			} while (WIFEXITED(check) == 0 && WIFSIGNALED(check) == 0);
+
 	}
 	return (0);
 }

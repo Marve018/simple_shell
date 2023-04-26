@@ -11,24 +11,30 @@ void _handle_exit(char **u_tokns, char *line)
 {
 	int status;
 
-	if (u_tokns[1] == NULL) /* No argument provided */
+	if (u_tokns[1] == NULL || (!_strcmp(u_tokns[1], "0"))) /* No argument provided */
 	{
 		free_tokens(u_tokns);
 		free(line);
-		exit(EXIT_SUCCESS);
+		exit(0);
 	}
 
 	status = _atoi(u_tokns[1]); /* Convert argument to integer */
 
-	if (status == 0 && _strcmp(u_tokns[1], "0") != 0) /* Invalid argument */
+	if (status != 0)
+	{
+		free_tokens(u_tokns);
+		free(line);
+		exit(status); /* Exit with provided status */
+	}
+	else
 	{
 		_puts("exit: Illegal number: ");
 		_puts(u_tokns[1]);
 		_puts("\n");
-		exit(EXIT_FAILURE);
+		exit(2);
 	}
 
 	free_tokens(u_tokns);
 	free(line);
-	exit(status); /* Exit with provided status */
+	exit(EXIT_SUCCESS);
 }

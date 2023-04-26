@@ -16,26 +16,20 @@ char **tokenize(char *str, char *delim, int len)
 	tokens = malloc(sizeof(char *) * (len + 1));
 	if (!tokens)
 		return (NULL);
+
 	str = remove_newline(str);
 	tmp = _strdup(str);
-	if (!tmp)
-	{
-		free(tokens);
-		return (NULL);
-	}
+
 	token = strtok(tmp, delim);
+
 	while (token)
 	{
-		tokens[tok_count++] = _strdup(token);
+		tokens[tok_count] = _strdup(token);
 		token = strtok(NULL, delim);
+		tok_count++;
 	}
 	tokens[tok_count] = NULL;
-	if (tok_count == 0 && !tokens[0])
-	{
-		free(tmp);
-		free(tokens);
-		return (NULL);
-	}
+	
 	free(tmp);
 	return (tokens);
 }

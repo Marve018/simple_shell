@@ -6,6 +6,13 @@
  */
 void free_env_var(char *env_var)
 {
+	int i = 4;
+
+	while (i >= 0)
+	{
+		env_var--;
+		i--;
+	}
 	free(env_var);
 }
 
