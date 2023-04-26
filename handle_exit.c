@@ -11,11 +11,9 @@ void _handle_exit(char **u_tokns, char *line)
 {
 	int status;
 
-<<<<<<< HEAD
-	if (u_tokns[1] == NULL || (!_strcmp(u_tokns[1], "0"))) 
-=======
 	if (u_tokns[1] == NULL || (!_strcmp(u_tokns[1], "0")))
->>>>>>> aadb718669a1545edeb400804d0c3da23777703a
+
+		if (u_tokns[1] == NULL || (!_strcmp(u_tokns[1], "0")))
 	{
 		free_tokens(u_tokns);
 		free(line);

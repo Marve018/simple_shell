@@ -22,7 +22,7 @@ int exec(char *cmd, char **copts)
 			break;
 		default:
 			do {
-				 waitpid(pid, &check, WUNTRACED);
+				waitpid(pid, &check, WUNTRACED);
 			} while (WIFEXITED(check) == 0 && WIFSIGNALED(check) == 0);
 
 	}
