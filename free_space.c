@@ -19,7 +19,7 @@ void free_env_var(char *env_var)
 
 /**
  * free_tokens - Frees an array of tokens.
- * @tokens: The array of tokens to free.
+ * @tokns: The array of tokens to free.
  * Return: Nothing to return.
  */
 

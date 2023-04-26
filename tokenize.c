@@ -29,7 +29,7 @@ char **tokenize(char *str, char *delim, int len)
 		tok_count++;
 	}
 	tokens[tok_count] = NULL;
-	
+
 	free(tmp);
 	return (tokens);
 }
