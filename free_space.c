@@ -16,15 +16,17 @@ void free_env_var(char *env_var)
  */
 void free_tokens(char **tokens)
 {
-    if (tokens == NULL)
-        return;
+	int i = 0;
 
-    for (int i = 0; tokens[i] != NULL; i++)
-    {
-        free(tokens[i]);
-        tokens[i] = NULL;
-    }
+	if (tokens == NULL)
+		return;
 
-    free(tokens);
-    tokens = NULL;
+	for (i=0; tokens[i] != NULL; i++)
+	{
+		free(tokens[i]);
+		tokens[i] = NULL;
+	}
+
+	free(tokens);
+	tokens = NULL;
 }

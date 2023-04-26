@@ -46,4 +46,8 @@ char *remove_newline(char *str);
 
 /* main */
 int count_input(char *str);
+
+/* Free space */
+void free_tokens(char **tokns);
+void free_env_var(char *env_var);
 #endif

@@ -52,9 +52,9 @@ char *find(char *cmd)
 				if (stat(p_tokns[i], &sb) == 0)
 				{
 					free(cmd);
-					cname = _strdup(p_tokns[i]);
-					frees_get_env(env_path);
-					frees_tokens(p_tokns);
+					cmd = _strdup(p_tokns[i]);
+					free_env_var(env_path);
+					free_tokens(p_tokns);
 					return (cmd);
 				}
 
@@ -65,7 +65,7 @@ char *find(char *cmd)
 			free_tokens(p_tokns);
 		}
 
-		if (stat(cname, &sb) == 0)
+		if (stat(cmd, &sb) == 0)
 			return (cmd);
 	}
 
