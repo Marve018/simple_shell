@@ -45,6 +45,7 @@ int main(int ac, char **av)
 	(void) av;
 	while (input_len >= 0)
 	{
+		signal(SIGINT, signal_handler);
 		if (isatty(STDIN_FILENO))
 			write(STDOUT_FILENO, "($) ", 4);
 
