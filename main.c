@@ -54,7 +54,7 @@ int main(int ac, char **av)
 		{
 			if (isatty(STDIN_FILENO))
 				write(STDOUT_FILENO, "\n", 1);
-			exit(0);
+			break;
 		}
 
 		wrd_len = count_input(input);
