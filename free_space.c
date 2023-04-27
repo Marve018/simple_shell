@@ -4,16 +4,16 @@
  * free_env_var - Frees an environment variable.
  * @env_var: The environment variable to free.
  */
-void free_env_var(char *env_var)
+void free_env_var(char *env_path)
 {
 	int i = 4;
 
 	while (i >= 0)
 	{
-		env_var--;
+		env_path--;
 		i--;
 	}
-	free(env_var);
+	free(env_path);
 }
 
 
